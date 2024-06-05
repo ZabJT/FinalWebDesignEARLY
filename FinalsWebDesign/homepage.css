@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100vw; /* Set body width to 100% viewport width */
+  min-height: 100vh; /* Set minimum body height to 100% viewport height */
+  margin: 0;
+  background-image: url(BG1.png); /* Set background image for entire body */
+  background-position: center; /* Center the background image */
+  background-size: cover; /* Ensure background image covers the entire viewport */
+  background-repeat: cover; /* Prevent background image from repeating */
+  opacity: 0; /* Initial opacity is 0, so the page is invisible */
+  animation: fadeIn 1s ease-in-out forwards; /* Define the animation */
+  animation-delay: 0.1s; /* Delay the animation by 1 second to allow for loading */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 260px;
+  background: #11101d;
+  padding: 15px;
+  z-index: 99;
+  transition: all 0.3s ease;
+}
+
+.sidebar.close {
+  width: 0;
+  padding: 0;
+}
+
+.logo {
+  padding: 0 20px;
+  display: block; /* Ensure logo is displayed even when sidebar is closed */
+  overflow: hidden;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.logo img {
+  width: 250px; /* Set the width of the logo image */
+  height: 200px; /* Set the height of the logo image */
+  margin-left: -30px;
+  object-fit: cover; /* Ensure the image is scaled to fit the container */
+  border-radius: 50%; /* Add a circular border radius to the logo image */
+}
+
+.sidebar.close.logo img {
+  opacity: 0; /* Hide the logo image when sidebar is closed */
+}
+
+.sidebar.close .logo {
+  opacity: 0; /* Hide the logo text when sidebar is closed */
+}
+
+.menu-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin-top: 40px;
+  overflow-y: auto;
+}
+
+.menu-content::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-items {
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  transition: all 0.4s ease;
+}
+
+.submenu-active .menu-items {
+  transform: translateX(-56%);
+}
+
+.menu-title {
+  color: #fff;
+  font-size: 20px;
+  padding: 15px 15px;
+}
+
+.item a,
+.submenu-item {
+  padding: 16px;
+  display: inline-block;
+  width: 100%;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.item i {
+  font-size: 12px;
+}
+
+.item a:hover,
+.submenu-item:hover,
+.submenu .menu-title:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.submenu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.submenu {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: calc(-100% - 26px);
+  background: #11101d;
+  display: none;
+}
+
+.show-submenu ~ .submenu {
+  display: block;
+}
+
+.submenu .menu-title {
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.submenu .menu-title i {
+  margin-right: 10px;
+}
+
+.navbar,
+.main {
+  left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+  z-index: 1000;
+}
+
+.sidebar.close ~ .navbar,
+.sidebar.close ~ .main {
+  left: 0;
+  width: 100%;
+}
+
+.navbar {
+  position: fixed;
+  color: #ffffff;
+  padding: 15px 20px;
+  font-size: 25px;
+  background: #c0c8c940;
+  backdrop-filter: 20%;
+  cursor: pointer;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+.navbar #sidebar-close {
+  cursor: pointer;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  z-index: 1;
+  background-image: url(BG1.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: left 0.3s ease, width 0.3s ease;
+  padding: 20px;
+  width: 100%;
+}
+
+.main h1 {
+  color: #ffffff;
+  font-size: 70px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 20px; /* Adjust this value to control spacing between h1 and h2 */
+  margin-left: 50px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.main h2 {
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+  margin-left: 50px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.main h1 {
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+.main h2 {
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.98);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(0.98);
+  }
+}
+
+.show {
+  display: block;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* About Us Styles */
+.aboutus-container {
+  position: relative;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100vw; /* Set body width to 100% viewport width */
+  min-height: 100vh; /* Set minimum body height to 100% viewport height */
+  margin: 0;
+  background-image: url(BG1.png); /* Set background image for entire body */
+  background-position: center; /* Center the background image */
+  background-size: cover; /* Ensure background image covers the entire viewport */
+  background-repeat: no-repeat;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+.aboutus-header-img {
+  width: 100%;  /* Set width to 100% of the aboutus container */
+  height: auto;  /* Set a desired height for the header */
+  margin-bottom: 50px;
+}
+
+.aboutus-content-container {
+  width: 60%;
+  height: auto;
+  background-color: rgba(249, 249, 249, 0.798); /* Background color with opacity */
+  padding: 20px;
+  border-radius: 10px;
+  margin: 0 auto; /* This will horizontally center the container */
+  position: relative;
+  z-index: 2; /* Ensure aboutus content is above sidebar */
+}
+
+.aboutus-content-container h3 {
+  margin-top: 0;
+  font-size: 36px;
+  color: #000000;
+  text-align: center;
+}
+
+.aboutus-content-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #4b4b4b;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.contactus-container {
+  position: relative;
+  z-index: 1; /* Ensure contactus content is above sidebar */
+  transition: left 0.3s ease, width 0.3s ease;
+  margin: 20px auto; /* This will horizontally center the container and provide spacing */
+}
+
+.contactus-content {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contactus-container h3 {
+  margin-top: 0;
+  font-size: 36px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.contactus-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* styles for contact us section */
+.contactus-container {
+  text-align: center; /* Center content horizontally */
+}
+
+.contactus-content {
+  margin: 0 auto; /* Center content horizontally within container */
+  max-width: 800px; /* Set a maximum width for the content area */
+}
+
+.contact-icons {
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Adjust as needed */
+}
+
+.contact-icons a {
+  margin: 0 20px; /* Adjust as needed */  
+  text-decoration: none; /* Remove the underline */
+}
+
+.contact-logos {
+  display: flex;
+  justify-content: space-around; /* Distribute logos evenly within the container */
+  align-items: center; /* Align logos vertically */
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.footer-img {
+  width: 60px; /* Set the width of the icons */
+  height: 70px; /* Automatically adjust the height to maintain aspect ratio */
+}
+
+.contact-logos img {
+  width: 100px; /* Set the width of the logos */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  margin: 0 10px; /* Adjust the margin as needed */
+}
+
+.lower-aboutus {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* Adjust height as needed */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* Gradient to fade out */
+  pointer-events: none; /* Ensure clicks pass through this section */
+  z-index: 1; /* Ensure it's behind the Contact Us section */
+}
+

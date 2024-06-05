@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100vw; /* Set body width to 100% viewport width */
+  min-height: 100vh; /* Set minimum body height to 100% viewport height */
+  margin: 0;
+  background-image: url(BG1.png); /* Set background image for entire body */
+  background-position: center; /* Center the background image */
+  background-size: cover; /* Ensure background image covers the entire viewport */
+  background-repeat: cover; /* Prevent background image from repeating */
+}
+
+/* Additional styles for the header and image grid */
+.header {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #f0f0f0; /* Change background color as needed */
+}
+
+.header img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 36px;
+  color: #333;
+  justify-content: left;
+  text-align: left;
+}
+
+.header h2 {
+  font-size: 36px;
+  color: #333;
+  justify-content: left;
+  text-align: left;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 images per row */
+  grid-gap: 10px; /* Adjust the gap between images as needed */
+  margin: 20px auto;
+  max-width: 1200px; /* Adjust max width of the grid as needed */
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Processor-specific Styles */
+.processor-container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.processor-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.processor-description {
+  color: #666;
+}
+
+.processor-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.processor-list-item {
+  margin-bottom: 10px;
+}
+
+.processor-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.processor-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.processor-link:hover {
+  text-decoration: underline;
+}
+
+/* Navbar and Sidebar Styles */
+.sidebar {
+    position: fixed;
+    height: 100%;
+    width: 260px;
+    background: #11101d;
+    padding: 15px;
+    z-index: 99;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar.close {
+    width: 0;
+    padding: 0;
+  }
+  
+  .logo {
+    padding: 0 20px;
+    display: block; /* Ensure logo is displayed even when sidebar is closed */
+    overflow: hidden;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+  }
+  
+  .logo img {
+    width: 250px; /* Set the width of the logo image */
+    height: 200px; /* Set the height of the logo image */
+    margin-left: -30px;
+    object-fit: cover; /* Ensure the image is scaled to fit the container */
+    border-radius: 50%; /* Add a circular border radius to the logo image */
+  }
+  
+  .sidebar.close.logo img {
+    opacity: 0; /* Hide the logo image when sidebar is closed */
+  }
+  
+  .sidebar.close .logo {
+    opacity: 0; /* Hide the logo text when sidebar is closed */
+  }
+  
+  .menu-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-top: 40px;
+    overflow-y: auto;
+  }
+  
+  .menu-content::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .menu-items {
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    transition: all 0.4s ease;
+  }
+  
+  .submenu-active .menu-items {
+    transform: translateX(-56%);
+  }
+  
+  .menu-title {
+    color: #fff;
+    font-size: 20px;
+    padding: 15px 15px;
+  }
+  
+  .item a,
+  .submenu-item {
+    padding: 16px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .item i {
+    font-size: 12px;
+  }
+  
+  .item a:hover,
+  .submenu-item:hover,
+  .submenu .menu-title:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .submenu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .submenu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: calc(-100% - 26px);
+    background: #11101d;
+    display: none;
+  }
+  
+  .show-submenu ~ .submenu {
+    display: block;
+  }
+  
+  .submenu .menu-title {
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  
+  .submenu .menu-title i {
+    margin-right: 10px;
+  }
+  
+  .navbar,
+  .main {
+    left: 260px;
+    width: calc(100% - 260px);
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
+  
+  .sidebar.close ~ .navbar,
+  .sidebar.close ~ .main {
+    left: 0;
+    width: 100%;
+  }
+  
+  .navbar {
+    position: fixed;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 25px;
+    background: #4070f4;
+    cursor: pointer;
+    transition: left 0.3s ease, width 0.3s ease;
+  }
+  
+  .navbar #sidebar-close {
+    cursor: pointer;
+  }
+
+  
+  

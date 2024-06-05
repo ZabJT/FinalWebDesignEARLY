@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MetaMatch</title>
+  <link rel="stylesheet" href="homepage.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="sidebar">
+    <div class="logo">
+      <img src="LOGO COMPANY.png" alt="MetaMatch Logo">
+    </div>
+    <div class="menu-content">
+      <ul class="menu-items">
+        <div class="menu-title" id="welcome">WELCOME</div>
+        <li class="item">
+          <a href="#main-content">HOME</a>
+        </li>
+        <li class="item">
+          <div class="submenu-item">
+            <span>PC PARTS</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </div>
+          <ul class="menu-items submenu">
+            <div class="menu-title">
+              <i class="fa-solid fa-chevron-left"></i>
+              PC PARTS
+            </div>
+            <li class="item">
+              <a href="processor.html">PROCESSORS</a>
+            </li>
+            <li class="item">
+              <a href="gpu.html">GPU</a>
+            </li>
+            <li class="item">
+              <a href="ram.html">RAM</a>
+            </li>
+          </ul>
+        </li>
+        <li class="item">
+          <a href="#aboutus" class="aboutus-link">ABOUT US</a>
+        </li>
+        <li class="item">
+          <a href="#contactus">CONTACT US</a>
+        </li>
+        <li class="item">
+          <a href="login.html">SIGN OUT</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <nav class="navbar">
+    <i class="fa-solid fa-bars" id="sidebar-close"></i>
+  </nav>
+
+  <main class="main parallax" id="main-content" data-parallax-speed="0.5">
+    <h1>Compare, Analyze, and Inspire:<br> 
+      Your Gateway to Knowledge.</h1>
+    <h2>Central Processing Unit, Graphics Processing Unit, Random Access Memory</h2>
+  </main>
+
+  <section id="aboutus" class="aboutus-container">
+    <img src="about us header.png" alt="About Us Header Image" class="aboutus-header-img">
+    <div class="aboutus-content-container">
+      <h3>About Us</h3>
+      <p>MetaMatch is dedicated to helping you find the best PC parts for your needs. We offer detailed comparisons, insightful analyses, and inspiration for your next build. Our mission is to provide the most accurate and up-to-date information to help you make informed decisions.</p>
+    </div>
+  </section>
+
+  <section id="contactus" class="contactus-container parallax" data-parallax-speed="0.3">
+    <div class="contactus-content contactus-content-container">
+      <h3>Contact Us</h3>
+      <p>Get in touch with us for any inquiries, feedback, or suggestions. We value your input and are here to assist you.</p>
+      <p>Email: info@metamatch.com</p>
+      <p>Phone: +63 912 345 6789</p>
+      <div class="contact-icons">
+        <a href=" ">
+          <img src="fblogoicon.png" alt="facebook" class="footer-img" style="width: 80px;">
+      </a>
+      <a href=" ">
+          <img src="iglogo.png" alt="instagram" class="footer-img" style="width: 70px; height: auto;">
+      </a>
+      <a href=" ">
+          <img src="twitterlogoicon.png" alt="twitter" class="footer-img" style="width: 70px; height: auto;">
+      </a>
+          </div>
+      <div class="contact-logos">
+        <img src="ryzen.png" alt="Logo 1" style="background-color: #fff; width: 150px; height: auto;">
+          <img src="intel.png" alt="Logo 2" style= "width: 120px; height: auto;">
+          <img src="AMD.png" alt="Logo 3">
+          <img src="NVIDIA.png" alt="Logo 4">
+          <img src="athlon.png" alt="Logo 5" style="background-color: #fff;">
+          </div>
+  </div>
+  </section>
+
+  <script src="homepage.js"></script>
+  <script>
+    // Fetch user's first name from local storage
+    const firstName = localStorage.getItem('firstName');
+    // Update welcome message with the user's first name
+    if (firstName) {
+      document.getElementById('welcome').innerText = `WELCOME, ${firstName.toUpperCase()}!`;
+    }
+  </script>
+</body>
+</html>
